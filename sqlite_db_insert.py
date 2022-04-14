@@ -1,0 +1,95 @@
+import sqlite_db_crud as crud
+import sqlite_handler as init
+import sqlite_db_show as show
+
+import sqlite3
+
+def insert_chapter():
+    
+    chapter_title = input("chapter title:")
+    chapter_num = input("chapter number:")
+
+    db = init.get_db()
+
+    try:
+        db.cursor().execute('Insert into Chapter (chapter_title,chapter_num) values (?,?);',(chapter_title,chapter_num))
+        db.commit()
+        print("新增完成")
+    except sqlite3.IntegrityError as e:
+        print(e)
+
+
+
+def insert_execises():
+    exercise_title = input("execises title:")
+    exercise_content = input("execises content:")
+
+    chapter_num = search_chapter()
+
+    print("exercise_title:",exercise_title)
+    print("exercise_content:",exercise_content)
+    print("chapter_num:",chapter_num)
+
+    db = init.get_db()
+    try:
+        db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,exercise_content) values (?,?,?);',(chapter_num,exercise_title,exercise_content))
+        db.commit()
+        print("新增完成")
+    except sqlite3.IntegrityError as e:
+        print(e)
+        
+
+
+def insert_tag():
+    exercise_title = search_exercise_title()
+    tag = input("tag :")
+    chapter_num = search_chapter()
+
+
+    db = init.get_db()
+    try:
+        db.cursor().execute('Insert into Tag (chapter_num,exercise_title,tag) values (?,?,?);',(chapter_num,exercise_title,tag))
+        db.commit()
+    except:
+        print("chapter or exercise title is not exist.")
+
+    print("新增完成")
+
+def search_chapter():
+    print("which one is correct chpater num:")
+    db = init.get_db()
+    print("chapter_num chapter_title")
+
+    show.show_chapter()
+
+    chapter_num = input("chpater number:")
+    
+    if(check_chapter_correct(chapter_num)):
+        return chapter_num
+    else:
+        crud._exit_()
+    
+
+def check_chapter_correct(chapter_num):
+    db = init.get_db()
+    correct = db.cursor().execute('select chapter_num from Chapter where chapter_num = ?;',[chapter_num]).fetchone()
+    return correct
+
+def search_exercise_title():
+    print("which one is the correct exercise title:")
+    db = init.get_db()
+
+    show.show_execises()
+
+    exercise_title = input("exercise title:")
+
+    if(check_exercise_title_correct(exercise_title)):
+        return exercise_title
+    else:
+        crud._exit_()
+
+
+def check_exercise_title_correct(exercise_title):
+    db = init.get_db()
+    correct = db.cursor().execute('select exercise_title from Exercises where exercise_title = ?;',[exercise_title]).fetchone()
+    return correct
