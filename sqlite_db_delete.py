@@ -1,4 +1,5 @@
-
+import sqlite_db_delete_inc as delete_inc
+import sqlite_db_crud as crud
 
 def delete_chapter():
         # 選擇全刪 或是 刪其中一個資料列
@@ -8,9 +9,9 @@ def delete_chapter():
                 print("delete all(da) delete one(do) quit(q)")
                 op = input("輸入操作:")
                 switch = {
-                        "da" : delete_all
+                        "da" : delete_inc.delete_all
                         ,
-                        "do" : delete_one
+                        "do" : delete_inc.delete_one
                         ,
                         'q' :  crud._exit_
                 }
