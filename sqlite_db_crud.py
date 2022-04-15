@@ -10,7 +10,7 @@ def insert():
         switch = {
             'c' : i.insert_chapter
             ,
-            'e' : i.insert_execises
+            'e' : i.insert_exercises
             ,
             't' : i.insert_tag
             ,
@@ -37,7 +37,7 @@ def revise():
         switch = {
             'c' : i.revise_chapter
             ,
-            'e' : i.revise_execises
+            'e' : i.revise_exercises
             ,
             't' : i.revise_tag
             ,
@@ -60,7 +60,7 @@ def delete():
         switch = {
             'c' : d.delete_chapter
             ,
-            'e' : d.delete_execises
+            'e' : d.delete_exercises
             ,
             't' : d.delete_tag
             ,
@@ -86,7 +86,7 @@ def show():
         switch = {
             'c' : s.show_chapter
             ,
-            'e' : s.show_execises
+            'e' : s.show_exercises
             ,
             't' : s.show_tag
             ,

@@ -24,7 +24,7 @@ def delete_chapter():
 #                        print("沒有這個指令 insert")
 #                        continue
 
-def delete_execises():
+def delete_exercises():
         # 選擇全刪 或是 刪其中一個資料列
         # 刪除前要先查看是否該章節有習題存在
         print("---刪除習題---")
@@ -40,7 +40,7 @@ def delete_execises():
                 }
 
 #                try:
-                out = switch.get(op)("execises")
+                out = switch.get(op)("exercises")
 #                        if out == 1:
 #                                break
 #                except:

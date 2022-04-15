@@ -21,9 +21,9 @@ def insert_chapter():
 
 
 
-def insert_execises():
-    exercise_title = input("execises title:")
-    exercise_content = input("execises content:")
+def insert_exercises():
+    exercise_title = input("exercises title:")
+    exercise_content = input("exercises content:")
 
     chapter_num = search_chapter()
 
@@ -57,7 +57,7 @@ def insert_tag():
     print("新增完成")
 
 def search_chapter():
-    print("which one is correct chpater num:")
+    print("which one is correct chapter num:")
     db = init.get_db()
     print("chapter_num chapter_title")
 
@@ -75,7 +75,7 @@ def search_exercise_title():
     print("which one is the correct exercise title:")
     db = init.get_db()
 
-    show.show_execises()
+    show.show_exercises()
 
     exercise_title = input("exercise title:")
 
