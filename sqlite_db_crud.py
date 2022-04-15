@@ -67,16 +67,16 @@ def delete():
             'q' :  _exit_
         }
 
-        try:
-            out = switch.get(op)()
-            if out == 1:
-                break
-        except:
-            print("沒有這個指令")
-            continue
-
-        if out == 1:
-            break
+#        try:
+        out = switch.get(op)()
+#            if out == 1:
+#                break
+#        except:
+#            print("沒有這個指令")
+#            continue
+#
+#        if out == 1:
+#            break
 
 def show():
     print("---查看---")

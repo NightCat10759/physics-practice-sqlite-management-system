@@ -77,11 +77,11 @@ if __name__ == '__main__':
             'h' : _help_
         }
 
-        try:
-            out = switch.get(op)()
-            if out == 1:
-                break
-        except:
-            print("沒有這個指令 help(h)")
-            continue
+#        try:
+        out = switch.get(op)()
+#            if out == 1:
+#                break
+#        except:
+#            print("沒有這個指令 help(h)")
+#            continue
 
