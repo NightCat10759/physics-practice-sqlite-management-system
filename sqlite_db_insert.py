@@ -1,6 +1,7 @@
 import sqlite_db_crud as crud
 import sqlite_handler as init
 import sqlite_db_show as show
+import sqlite_db_verified as verified
 
 import sqlite3
 
@@ -64,16 +65,11 @@ def search_chapter():
 
     chapter_num = input("chpater number:")
     
-    if(check_chapter_correct(chapter_num)):
+    if(verified._chapter_correct_verified(chapter_num)):
         return chapter_num
     else:
         crud._exit_()
     
-
-def check_chapter_correct(chapter_num):
-    db = init.get_db()
-    correct = db.cursor().execute('select chapter_num from Chapter where chapter_num = ?;',[chapter_num]).fetchone()
-    return correct
 
 def search_exercise_title():
     print("which one is the correct exercise title:")
@@ -83,13 +79,9 @@ def search_exercise_title():
 
     exercise_title = input("exercise title:")
 
-    if(check_exercise_title_correct(exercise_title)):
+    if(verified._exercise_title_verified(exercise_title)):
         return exercise_title
     else:
         crud._exit_()
 
 
-def check_exercise_title_correct(exercise_title):
-    db = init.get_db()
-    correct = db.cursor().execute('select exercise_title from Exercises where exercise_title = ?;',[exercise_title]).fetchone()
-    return correct
