@@ -32,9 +32,9 @@ def delete_exercises():
                 print("delete all(da) delete one(do) quit(q)")
                 op = input("輸入操作:")
                 switch = {
-                        "da" : delete_all
+                        "da" : delete_inc.delete_all
                         ,
-                        "do" : delete_one
+                        "do" : delete_inc.delete_one
                         ,
                         'q' :  crud._exit_
                 }
@@ -55,9 +55,9 @@ def delete_tag():
                 print("delete all(da) delete one(do) quit(q)")
                 op = input("輸入操作:")
                 switch = {
-                        "da" : delete_all
+                        "da" : delete_inc.delete_all
                         ,
-                        "do" : delete_one
+                        "do" : delete_inc.delete_one
                         ,
                         'q' :  crud._exit_
                 }

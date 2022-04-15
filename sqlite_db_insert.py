@@ -15,7 +15,7 @@ def insert_chapter():
     try:
         db.cursor().execute('Insert into Chapter (chapter_title,chapter_num) values (?,?);',(chapter_title,chapter_num))
         db.commit()
-        print("新增完成")
+        print("章節新增完成")
     except sqlite3.IntegrityError as e:
         print(e)
 
@@ -35,7 +35,7 @@ def insert_exercises():
     try:
         db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,exercise_content) values (?,?,?);',(chapter_num,exercise_title,exercise_content))
         db.commit()
-        print("新增完成")
+        print("習題新增完成")
     except sqlite3.IntegrityError as e:
         print(e)
         
@@ -51,10 +51,10 @@ def insert_tag():
     try:
         db.cursor().execute('Insert into Tag (chapter_num,exercise_title,tag) values (?,?,?);',(chapter_num,exercise_title,tag))
         db.commit()
+        print("標籤新增完成")
     except:
         print("chapter or exercise title is not exist.")
 
-    print("新增完成")
 
 def search_chapter():
     print("which one is correct chapter num:")

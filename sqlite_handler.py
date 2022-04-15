@@ -48,14 +48,14 @@ def read_db():
         print(chapter)
 
 def _help_():
-    print("新增 (i) 修改(r) 刪除(d) 查看(s) 離開(q) help(h)")
+    print("新增 (i) 修改(r) 刪除(d) 查看(s) 離開(q)")
 
 
 if __name__ == '__main__':
     print("這是 Physics-practice 的資料庫管理系統")
-    _help_()
     
     while(1):
+        _help_()
         print("---首頁---")
         op = input("輸入操作:")
 
@@ -73,8 +73,6 @@ if __name__ == '__main__':
             's' : crud.show
             ,
             'q' : crud._exit_
-            ,
-            'h' : _help_
         }
 
 #        try:

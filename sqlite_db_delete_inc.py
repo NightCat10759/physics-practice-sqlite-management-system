@@ -39,7 +39,7 @@ def choose_chapter_one():
 
 def choose_exercises_all():
         show.show_exercises()
-        print("確認要將\"章節\"全部刪除嗎?")
+        print("確認要將\"習題\"全部刪除嗎?")
         op = input("輸入(y)(n):")
         if (op == 'y'):
                 db = init.get_db()
@@ -54,16 +54,16 @@ def choose_exercises_all():
                 crud._exit_()
 
 def choose_exercises_one():
-        show.show_chapter()
-        print("確認要刪除的章節資料")
-        chapter_num = input("(輸入 chapter_num):")
-        if (verified._chapter_correct_verified(chapter_num)):
+        show.show_exercises()
+        print("確認要刪除的習題資料")
+        exercise_title = input("(輸入 exercise_title):")
+        if (verified._exercise_title_verified(exercise_title)):
                 db = init.get_db()
                 
                 try:
-                        db.cursor().execute('delete from Chapter where chapter_num = ?;',[chapter_num])
+                        db.cursor().execute('delete from Exercises where exercise_title = ?;',[exercise_title])
                         db.commit()
-                        print(chapter_num + " 章節刪除")
+                        print(exercise_title + " 習題刪除")
                 except sqlite3.IntegrityError as e:
                         print("操作失敗: ",e)
         else:
@@ -71,15 +71,15 @@ def choose_exercises_one():
                 crud._exit_()
 
 def choose_tag_all():
-        show.show_exercises()
-        print("確認要將\"章節\"全部刪除嗎?")
+        show.show_tag()
+        print("確認要將\"標籤\"全部刪除嗎?")
         op = input("輸入(y)(n):")
         if (op == 'y'):
                 db = init.get_db()
                 try:
-                        db.cursor().execute('delete from Exercises;')
+                        db.cursor().execute('delete from Tag;')
                         db.commit()
-                        print("章節全部刪除")
+                        print("標籤全部刪除")
                 except sqlite3.IntegrityError as e:
                         print("操作失敗: ",e)
         else:
@@ -87,16 +87,16 @@ def choose_tag_all():
                 crud._exit_()
 
 def choose_tag_one():
-        show.show_chapter()
-        print("確認要刪除的章節資料")
-        chapter_num = input("(輸入 chapter_num):")
-        if (verified._chapter_correct_verified(chapter_num)):
+        show.show_tag()
+        print("確認要刪除的標籤資料")
+        exercise_title = input("(輸入 exercise_title):")
+        if (verified._exercise_title_verified(exercise_title)):
                 db = init.get_db()
                 
                 try:
-                        db.cursor().execute('delete from Chapter where chapter_num = ?;',[chapter_num])
+                        db.cursor().execute('delete from Tag where exercise_title = ?;',[exercise_title])
                         db.commit()
-                        print(chapter_num + " 章節刪除")
+                        print(exercise_title + " 標籤刪除")
                 except sqlite3.IntegrityError as e:
                         print("操作失敗: ",e)
         else:
@@ -108,6 +108,7 @@ def delete_all(topic):
         print("---刪除全部章節選擇---")
         if(topic == "chapter"):
                 choose_chapter_all()
+
         elif(topic == "exercises"):
                 choose_exercises_all()
         
@@ -124,6 +125,7 @@ def delete_one(topic):
         print("---刪除章節選擇---")
         if(topic == "chapter"):
                 choose_chapter_one()   
+
         elif(topic == "exercises"):
                 choose_exercises_one()   
         

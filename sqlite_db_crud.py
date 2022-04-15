@@ -4,8 +4,8 @@ import sqlite_db_show as s
 
 def insert():
     print("---新增---")
-    print("新增章節資料(c) 新增習題資料(e) 新增標籤資料(t) 離開(q)")
     while(1):
+        print("新增章節資料(c) 新增習題資料(e) 新增標籤資料(t) 離開(q)")
         op = input("輸入操作:")
         switch = {
             'c' : i.insert_chapter
@@ -33,6 +33,7 @@ def revise():
     print("---修改---")
     print("修改章節資料(c) 修改習題資料(e) 修改標籤資料(t) 離開(q)")
     while(1):
+        print("修改章節資料(c) 修改習題資料(e) 修改標籤資料(t) 離開(q)")
         op = input("輸入操作:")
         switch = {
             'c' : i.revise_chapter
@@ -49,13 +50,13 @@ def revise():
             if out == 1:
                 break
         except:
-            print("沒有這個指令")
+            print("沒有這個指令 revise")
             continue
 
 def delete():
     print("---刪除---")
-    print("刪除章節資料(c) 刪除習題資料(e) 刪除標籤資料(t) 離開(q)")
     while(1):
+        print("刪除章節資料(c) 刪除習題資料(e) 刪除標籤資料(t) 離開(q)")
         op = input("輸入操作:")
         switch = {
             'c' : d.delete_chapter
@@ -80,8 +81,8 @@ def delete():
 
 def show():
     print("---查看---")
-    print("查看章節資料(c) 查看習題資料(e) 查看標籤資料(t) 查看所有習題(a) 離開(q)")
     while(1):
+        print("查看章節資料(c) 查看習題資料(e) 查看標籤資料(t) 查看所有習題(a) 離開(q)")
         op = input("輸入操作:")
         switch = {
             'c' : s.show_chapter
@@ -102,7 +103,7 @@ def show():
             if out == 1:
                 break
         except:
-            print("沒有這個指令")
+            print("沒有這個指令 show")
             continue
 
 
