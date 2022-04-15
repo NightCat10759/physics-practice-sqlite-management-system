@@ -40,7 +40,7 @@ def delete_execises():
                 }
 
 #                try:
-                out = switch.get(op)("chapter")
+                out = switch.get(op)("execises")
 #                        if out == 1:
 #                                break
 #                except:
@@ -50,7 +50,7 @@ def delete_execises():
 def delete_tag():
         # 選擇全刪 或是 刪其中一個資料列
         # 刪除前要先查看是否該章節有習題存在
-        print("---刪除章節---")
+        print("---刪除標籤---")
         while(1):
                 print("delete all(da) delete one(do) quit(q)")
                 op = input("輸入操作:")
@@ -63,7 +63,7 @@ def delete_tag():
                 }
 
 #                try:
-                out = switch.get(op)("chapter")
+                out = switch.get(op)("tag")
 #                        if out == 1:
 #                                break
 #                except:
