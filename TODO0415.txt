@@ -1,0 +1,6 @@
+
+
+1.將Exercises 的 answer 相關功能做出來 : 已改schema ::okay
+2.revise做出來 ::
+3.查詢只需輸入關鍵字 ::
+4.證明題解答只有證明步驟 ::

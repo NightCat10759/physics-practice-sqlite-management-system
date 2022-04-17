@@ -1,5 +1,6 @@
 import sqlite_db_insert as i
 import sqlite_db_delete as d
+import sqlite_db_revise as r
 import sqlite_db_show as s
 
 def insert():
@@ -36,11 +37,11 @@ def revise():
         print("修改章節資料(c) 修改習題資料(e) 修改標籤資料(t) 離開(q)")
         op = input("輸入操作:")
         switch = {
-            'c' : i.revise_chapter
+            'c' : r.revise_chapter
             ,
-            'e' : i.revise_exercises
+            'e' : r.revise_exercises
             ,
-            't' : i.revise_tag
+            't' : r.revise_tag
             ,
             'q' :  _exit_
         }

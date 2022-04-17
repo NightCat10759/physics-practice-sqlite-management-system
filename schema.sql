@@ -3,6 +3,7 @@ CREATE TABLE Exercises (
     id INTEGER PRIMARY KEY ASC AUTOINCREMENT,
     chapter_num TEXT NOT NULL,
     exercise_title TEXT NOT NULL UNIQUE,
+    answer TEXT NOT NULL ,
     exercise_content TEXT NOT NULL
 );
 CREATE INDEX i1 ON Exercises(chapter_num);

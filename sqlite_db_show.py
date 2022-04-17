@@ -11,7 +11,7 @@ def show_chapter():
 def show_exercises():
     db = init.get_db()
     print("\n查看所有習題")
-    print("(id,chapter,exercise_title,exercise_content)")
+    print("(id,chapter,exercise_title,answer,exercise_content)")
     for exercise_content in db.cursor().execute('select * from Exercises'):
         print(exercise_content) 
     print("查看完成")

@@ -1,6 +1,7 @@
 import sqlite_db_crud as crud
 import sqlite_handler as init
 import sqlite_db_show as show
+import sqlite_db_search as search
 import sqlite_db_verified as verified
 
 import sqlite3
@@ -24,16 +25,18 @@ def insert_chapter():
 def insert_exercises():
     exercise_title = input("exercises title:")
     exercise_content = input("exercises content:")
+    answer = input("exercises answer:")
 
     chapter_num = search_chapter()
 
     print("exercise_title:",exercise_title)
     print("exercise_content:",exercise_content)
+    print("answer:",answer)
     print("chapter_num:",chapter_num)
 
     db = init.get_db()
     try:
-        db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,exercise_content) values (?,?,?);',(chapter_num,exercise_title,exercise_content))
+        db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,answer,exercise_content) values (?,?,?,?);',(chapter_num,exercise_title,answer,exercise_content))
         db.commit()
         print("習題新增完成")
     except sqlite3.IntegrityError as e:
@@ -55,33 +58,5 @@ def insert_tag():
     except:
         print("chapter or exercise title is not exist.")
 
-
-def search_chapter():
-    print("which one is correct chapter num:")
-    db = init.get_db()
-    print("chapter_num chapter_title")
-
-    show.show_chapter()
-
-    chapter_num = input("chpater number:")
-    
-    if(verified._chapter_correct_verified(chapter_num)):
-        return chapter_num
-    else:
-        crud._exit_()
-    
-
-def search_exercise_title():
-    print("which one is the correct exercise title:")
-    db = init.get_db()
-
-    show.show_exercises()
-
-    exercise_title = input("exercise title:")
-
-    if(verified._exercise_title_verified(exercise_title)):
-        return exercise_title
-    else:
-        crud._exit_()
 
 
