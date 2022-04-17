@@ -18,13 +18,13 @@ def insert():
             'q' :  _exit_
         }
 
-        try:
-            out = switch.get(op)()
-            if out == 1:
-                break
-        except:
-            print("沒有這個指令 insert")
-            continue
+#        try:
+        out = switch.get(op)()
+#            if out == 1:
+#                break
+#        except:
+#            print("沒有這個指令 insert")
+#            continue
 
         
 
@@ -32,7 +32,6 @@ def insert():
 
 def revise():
     print("---修改---")
-    print("修改章節資料(c) 修改習題資料(e) 修改標籤資料(t) 離開(q)")
     while(1):
         print("修改章節資料(c) 修改習題資料(e) 修改標籤資料(t) 離開(q)")
         op = input("輸入操作:")

@@ -27,7 +27,7 @@ def insert_exercises():
     exercise_content = input("exercises content:")
     answer = input("exercises answer:")
 
-    chapter_num = search_chapter()
+    chapter_num = search.search_chapter()
 
     print("exercise_title:",exercise_title)
     print("exercise_content:",exercise_content)
@@ -35,19 +35,19 @@ def insert_exercises():
     print("chapter_num:",chapter_num)
 
     db = init.get_db()
-    try:
-        db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,answer,exercise_content) values (?,?,?,?);',(chapter_num,exercise_title,answer,exercise_content))
-        db.commit()
-        print("習題新增完成")
-    except sqlite3.IntegrityError as e:
-        print(e)
+#    try:
+    db.cursor().execute('Insert into Exercises (chapter_num,exercise_title,answer,exercise_content) values (?,?,?,?);',(chapter_num,exercise_title,answer,exercise_content))
+    db.commit()
+    print("習題新增完成")
+#    except sqlite3.IntegrityError as e:
+#    print(e)
         
 
 
 def insert_tag():
-    exercise_title = search_exercise_title()
+    exercise_title = search.search_exercise_title()
     tag = input("tag :")
-    chapter_num = search_chapter()
+    chapter_num = search.search_chapter()
 
 
     db = init.get_db()

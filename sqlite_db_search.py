@@ -18,7 +18,7 @@ def search_chapter():
         return chapter_num
     else:
         crud._exit_()
-        
+
 def search_exercise_title():
     print("which one is the correct exercise title:")
     db = init.get_db()
