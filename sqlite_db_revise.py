@@ -59,7 +59,7 @@ def revise_chapter():
 
 
 def revise_exercises():
-    print("Input the Chapter which you want to revise?")
+    print("Input the exercise title which you want to revise?")
     exercise_title = search.search_exercise_title()
 
     print("which content do you want to revise?")
@@ -124,18 +124,16 @@ def revise_exercises():
         print("ERROR")
 
 def revise_tag():
-    exercise_title = search.search_exercise_title()
-    tag = input("tag :")
-    chapter_num = search.search_chapter()
+    print("Input the exercise title which you want to revise?")
+    exercise_title = search.search_tag()
 
-
+    new_tag = input("Input new tag you want:")
     db = init.get_db()
     try:
-        db.cursor().execute('Insert into Tag (chapter_num,exercise_title,tag) values (?,?,?);',(chapter_num,exercise_title,tag))
+        db.cursor().execute('UPDATE Tag \
+                             SET tag = ?\
+                             where exercise_title = ?',(new_tag,exercise_title))
         db.commit()
-        print("標籤新增完成")
-    except:
-        print("chapter or exercise title is not exist.")
-
-
-
+        print("習題標籤修改完成")
+    except sqlite3.IntegrityError as e:
+        print(e)
