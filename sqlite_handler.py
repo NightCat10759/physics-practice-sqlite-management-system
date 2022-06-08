@@ -8,7 +8,7 @@ from flask import Flask
 from flask import g
 from flask_script import Manager
 
-import sqlite_db_crud as crud
+import sqlite_db_controller as crud
 
 
 app = Flask(__name__)
@@ -75,11 +75,11 @@ if __name__ == '__main__':
             'q' : crud._exit_
         }
 
-#        try:
-        out = switch.get(op)()
-#            if out == 1:
-#                break
-#        except:
-#            print("沒有這個指令 help(h)")
-#            continue
+        try:
+            out = switch.get(op)()
+            if out == 1:
+                break
+        except:
+            print("沒有這個指令 help(h)")
+            continue
 

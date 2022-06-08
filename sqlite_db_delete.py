@@ -1,5 +1,5 @@
 import sqlite_db_delete_inc as delete_inc
-import sqlite_db_crud as crud
+import sqlite_db_controller as crud
 
 def delete_chapter():
         # 選擇全刪 或是 刪其中一個資料列
